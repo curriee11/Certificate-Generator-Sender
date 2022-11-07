@@ -7,15 +7,15 @@ import imghdr
 from email.message import EmailMessage
 from email.utils import formataddr
 
-EMAIL_ADDRESS = 'impoeish@gmail.com'
-EMAIL_PASSWORD = 'Khush178910!!'
+EMAIL_ADDRESS = 'enter your email'
+EMAIL_PASSWORD = 'enter your password'
 
 i = 1
 with open("emaillogs.txt", 'a') as f:
     for filename in os.listdir('certificates'):
         try:
             # smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
-            print("ok")
+            # print("ok")
             with open(os.path.join('certificates', filename), 'rb') as fp:
                 file_data = fp.read()
                 msg = EmailMessage()
@@ -29,26 +29,19 @@ with open("emaillogs.txt", 'a') as f:
                 msg.add_attachment(file_data, maintype='application',
                                    subtype='pdf', filename='techtehvaar.pdf')
                 print('read file '+str(i)+" "+str(filename))
-                print("ok")
+                # print("ok")
                
-                # with smtplib.SMTP_SSL('smtp.gmail.com', 587) as smtp:
-                #     print("ok")
-                #     smtp.login()
-                #     print("hi")
-                #     smtp.send_message(msg)
+                with smtplib.SMTP_SSL('smtp.gmail.com', 587) as smtp:
+                    # print("ok")
+                    smtp.login()
+                    # print("hi")
+                    smtp.send_message(msg)
                 # server = smtplib.SMTP('smtp.gmail.com', 587)
                 # server.ehlo()
                 # server.starttls()
                 # server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
                 
-                s = smtplib.SMTP('smtp.gmail.com', 587)
-                s.starttls()
-                print("kya")
-                s.login("impoeish@gmail.com", "Khush178910!!")
-                print("wow")
-                s.send_message = msg
-                s.sendmail("impoeish@gmail.com", dest, message)
-                s.quit()
+                
                 # s.sendmail("impoeish@gmail.com", dest, message)
      
    

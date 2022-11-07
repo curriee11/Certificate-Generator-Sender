@@ -25,7 +25,7 @@ with open("logs.txt", 'a') as f:
             draw = ImageDraw.Draw(image)
              
              
-            print("ok");
+            # print("ok");
             (x, y) = (950, 1120)
             color = 'rgb(45, 52, 54)'
             name = name
@@ -44,7 +44,7 @@ with open("logs.txt", 'a') as f:
             font = ImageFont.truetype('SouthamDemo.otf', size=180)
             draw.text((x, y), name, fill=color, font=font)
             
-            print("ok");
+            # print("ok");
             cert_dir = 'certificates/'
             cert_path = cert_dir+email+'.pdf'
             image.save(cert_path)
