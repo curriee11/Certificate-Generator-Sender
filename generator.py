@@ -20,10 +20,12 @@ else:
 with open("logs.txt", 'a') as f:
     for (name, email) in zip(names, emails):
         try:
-            file_path = 'base_file.png'
+            file_path = 'screenshot.png'
             image = Image.open(file_path)
             draw = ImageDraw.Draw(image)
-
+             
+             
+            print("ok");
             (x, y) = (950, 1120)
             color = 'rgb(45, 52, 54)'
             name = name
@@ -41,7 +43,8 @@ with open("logs.txt", 'a') as f:
             name = "Fahad Ashiq"
             font = ImageFont.truetype('SouthamDemo.otf', size=180)
             draw.text((x, y), name, fill=color, font=font)
-
+            
+            print("ok");
             cert_dir = 'certificates/'
             cert_path = cert_dir+email+'.pdf'
             image.save(cert_path)
